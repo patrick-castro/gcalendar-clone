@@ -17,7 +17,7 @@ const Month: FC<Props> = ({ month }) => {
       {month.map((row: Week, i: number) => (
         <React.Fragment key={i}>
           {row.map((day: Day, idx: number) => (
-            <Day day={day} key={idx} />
+            <Day day={day} key={idx} rowIdx={i} />
           ))}
         </React.Fragment>
       ))}
