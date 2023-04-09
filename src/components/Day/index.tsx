@@ -1,13 +1,13 @@
 import React, { FC } from 'react'
 import dayjs from 'dayjs'
-import { FORMAT } from '../../constants'
+import { DATE_FORMAT } from '../../constants'
 
 interface Props {
   day: dayjs.Dayjs
   rowIdx: number
 }
 
-const { TWO_DIGIT_DATE, DAY_OF_WEEK, FULL_DATE } = FORMAT
+const { TWO_DIGIT_DATE, DAY_OF_WEEK, FULL_DATE } = DATE_FORMAT
 
 const Day: FC<Props> = ({ day, rowIdx }) => {
   function getCurrentDayClass() {

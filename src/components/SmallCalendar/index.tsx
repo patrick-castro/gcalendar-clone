@@ -2,11 +2,12 @@ import React, { useContext, useEffect, useState } from 'react'
 import dayjs from 'dayjs'
 
 import { getMonth } from '../../utils'
-import { FORMAT } from '../../constants'
+import { DATE_FORMAT } from '../../constants'
 import type { Day, Week } from '../../types'
 import GlobalContext from '../../context/GlobalContext'
 
-const { MONTH_AND_YEAR, TWO_LETTER_DAY, ONE_DIGIT_DATE, FULL_DATE } = FORMAT
+const { MONTH_AND_YEAR, TWO_LETTER_DAY, ONE_DIGIT_DATE, FULL_DATE } =
+  DATE_FORMAT
 
 const SmallCalendar = () => {
   const [currentMonthIdx, setCurrentMonthIdx] = useState(dayjs().month())

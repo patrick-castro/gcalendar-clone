@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react'
 import GlobalContext from '../../context/GlobalContext'
 
-import { FORMAT } from '../../constants'
-const { DAY_AND_WEEK } = FORMAT
+import { DATE_FORMAT } from '../../constants'
+const { DAY_AND_WEEK } = DATE_FORMAT
 
 const EventModal = () => {
   const [title, setTitle] = useState('')

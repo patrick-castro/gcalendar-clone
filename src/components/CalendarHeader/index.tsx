@@ -3,9 +3,9 @@ import dayjs from 'dayjs'
 import GlobalContext from '../../context/GlobalContext'
 import logo from '../../assets/logo.png'
 
-import { FORMAT } from '../../constants'
+import { DATE_FORMAT } from '../../constants'
 
-const { MONTH_AND_YEAR } = FORMAT
+const { MONTH_AND_YEAR } = DATE_FORMAT
 
 const CalendarHeader = () => {
   const { monthIdx, setMonthIdx } = useContext(GlobalContext)
