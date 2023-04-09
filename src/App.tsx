@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 // Components
 import CalendarHeader from './components/CalendarHeader'
@@ -12,14 +12,15 @@ import { getMonth } from './utils'
 import './App.css'
 
 function App() {
-  getMonth(3)
+  const [currentMonth, setCurrentMonth] = useState(getMonth())
+
   return (
     <>
       <div className='h-screen flex flex-columns'>
         <CalendarHeader />
         <div className='flex flex-1'>
           <Sidebar />
-          <Month />
+          <Month month={currentMonth} />
         </div>
       </div>
     </>
