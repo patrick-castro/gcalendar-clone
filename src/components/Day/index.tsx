@@ -1,7 +1,8 @@
 import React, { FC } from 'react'
+import dayjs from 'dayjs'
 
 interface Props {
-  day: any
+  day: dayjs.Dayjs
 }
 
 const Day: FC<Props> = ({ day }) => {
