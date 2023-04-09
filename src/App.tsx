@@ -1,11 +1,28 @@
 import React from 'react'
+
+// Components
+import CalendarHeader from './components/CalendarHeader'
+import Sidebar from './components/Sidebar'
+import Month from './components/Month'
+
+// Utils
+import { getMonth } from './utils'
+
+// Style
 import './App.css'
 
 function App() {
+  getMonth(3)
   return (
-    <div className='App'>
-      <p className='font-bold text-3xl'>Test</p>
-    </div>
+    <>
+      <div className='h-screen flex flex-columns'>
+        <CalendarHeader />
+        <div className='flex flex-1'>
+          <Sidebar />
+          <Month />
+        </div>
+      </div>
+    </>
   )
 }
 
