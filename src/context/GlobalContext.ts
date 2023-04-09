@@ -11,6 +11,7 @@ interface ContextProps {
   setDaySelected: Function
   showEventModal: boolean
   setShowEventModal: Function
+  dispatchCalEvent: Function
 }
 
 const GlobalContext = createContext<ContextProps>({
@@ -19,9 +20,10 @@ const GlobalContext = createContext<ContextProps>({
   smallCalendarMonth: 0,
   setSmallCalendarMonth: (index: number) => {},
   daySelected: dayjs(),
-  setDaySelected: (day: any) => {},
+  setDaySelected: (day: Day) => {},
   showEventModal: false,
   setShowEventModal: () => {},
+  dispatchCalEvent: ({ type, payload }: any) => {},
 })
 
 export default GlobalContext
