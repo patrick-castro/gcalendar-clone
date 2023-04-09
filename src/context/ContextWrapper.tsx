@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useState } from 'react'
+import React, { FC, ReactNode, useEffect, useState } from 'react'
 import GlobalContext from './GlobalContext'
 import dayjs from 'dayjs'
 
@@ -8,8 +8,25 @@ interface Props {
 
 const ContextWrapper: FC<Props> = ({ children }) => {
   const [monthIdx, setMonthIdx] = useState(dayjs().month())
+  const [smallCalendarMonth, setSmallCalendarMonth] = useState<null | number>(
+    null
+  )
+
+  useEffect(() => {
+    if (smallCalendarMonth !== null) {
+      setMonthIdx(smallCalendarMonth)
+    }
+  }, [smallCalendarMonth])
+
   return (
-    <GlobalContext.Provider value={{ monthIdx, setMonthIdx }}>
+    <GlobalContext.Provider
+      value={{
+        monthIdx,
+        setMonthIdx,
+        smallCalendarMonth,
+        setSmallCalendarMonth,
+      }}
+    >
       {children}
     </GlobalContext.Provider>
   )

@@ -16,7 +16,7 @@ const SmallCalendar = () => {
     setCurrentMonth(getMonth(currentMonthIdx))
   }, [currentMonthIdx])
 
-  const { monthIdx } = useContext(GlobalContext)
+  const { monthIdx, setSmallCalendarMonth } = useContext(GlobalContext)
 
   useEffect(() => {
     // TODO: FIX BUG
@@ -46,7 +46,7 @@ const SmallCalendar = () => {
   return (
     <div className='mt-9'>
       <header className='flex justify-between'>
-        <p className='text-gray-500 font-bold'>
+        <p className='text-gray-500 font-semibold'>
           {dayjs(new Date(dayjs().year(), currentMonthIdx)).format(
             MONTH_AND_YEAR
           )}
@@ -76,7 +76,11 @@ const SmallCalendar = () => {
         {currentMonth.map((row: Week, idx: number) => (
           <React.Fragment key={idx}>
             {row.map((day: Day, i: number) => (
-              <button key={i} className={`py-1 w-full ${getDayClass(day)}`}>
+              <button
+                key={i}
+                className={`py-1 w-full ${getDayClass(day)}`}
+                onClick={() => setSmallCalendarMonth(currentMonthIdx)}
+              >
                 <span className='text-sm'>{day.format(ONE_DIGIT_DATE)}</span>
               </button>
             ))}
