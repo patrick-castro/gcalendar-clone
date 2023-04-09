@@ -1,12 +1,10 @@
 import React, { FC } from 'react'
-import dayjs from 'dayjs'
+
+// Types
+import type { Day, Week, Month } from '../../types'
 
 // Components
-import Day from '../Day'
-
-type Day = dayjs.Dayjs
-type Week = Day[]
-type Month = Week[]
+import DayComponent from '../Day'
 interface Props {
   month: Month
 }
@@ -17,7 +15,7 @@ const Month: FC<Props> = ({ month }) => {
       {month.map((row: Week, i: number) => (
         <React.Fragment key={i}>
           {row.map((day: Day, idx: number) => (
-            <Day day={day} key={idx} rowIdx={i} />
+            <DayComponent day={day} key={idx} rowIdx={i} />
           ))}
         </React.Fragment>
       ))}
