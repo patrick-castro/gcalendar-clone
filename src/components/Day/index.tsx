@@ -1,21 +1,17 @@
 import React, { FC } from 'react'
 import dayjs from 'dayjs'
+import { FORMAT } from '../../constants'
 
 interface Props {
   day: dayjs.Dayjs
   rowIdx: number
 }
 
-// The two digits of the date
-const DATE_FORMAT = 'DD'
-// First 3 letters of the day of the week
-const DAY_OF_WEEK_FORMAT = 'ddd'
+const { TWO_DIGIT_DATE, DAY_OF_WEEK, FULL_DATE } = FORMAT
 
 const Day: FC<Props> = ({ day, rowIdx }) => {
   function getCurrentDayClass() {
-    const DATE_FORMAT = 'DD-MM-YY'
-
-    return day.format(DATE_FORMAT) === dayjs().format(DATE_FORMAT)
+    return day.format(FULL_DATE) === dayjs().format(FULL_DATE)
       ? 'bg-blue-600 text-white rounded-full w-7'
       : ''
   }
@@ -25,12 +21,12 @@ const Day: FC<Props> = ({ day, rowIdx }) => {
       <header className='flex flex-col items-center'>
         {rowIdx === 0 && (
           <p className='text-sm mt-1'>
-            {day.format(DAY_OF_WEEK_FORMAT)?.toUpperCase()}
+            {day.format(DAY_OF_WEEK)?.toUpperCase()}
           </p>
         )}
 
         <p className={`text-sm p-1 my-1 text-center ${getCurrentDayClass()}`}>
-          {day.format(DATE_FORMAT)}
+          {day.format(TWO_DIGIT_DATE)}
         </p>
       </header>
     </div>

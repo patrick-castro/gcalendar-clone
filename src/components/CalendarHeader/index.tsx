@@ -3,7 +3,9 @@ import dayjs from 'dayjs'
 import GlobalContext from '../../context/GlobalContext'
 import logo from '../../assets/logo.png'
 
-const MONTH_AND_YEAR_FORMAT = 'MMMM YYYY'
+import { FORMAT } from '../../constants'
+
+const { MONTH_AND_YEAR } = FORMAT
 
 const CalendarHeader = () => {
   const { monthIdx, setMonthIdx } = useContext(GlobalContext)
@@ -21,7 +23,7 @@ const CalendarHeader = () => {
   }
 
   const monthAndYear = dayjs(new Date(dayjs().year(), monthIdx)).format(
-    MONTH_AND_YEAR_FORMAT
+    MONTH_AND_YEAR
   )
 
   return (
