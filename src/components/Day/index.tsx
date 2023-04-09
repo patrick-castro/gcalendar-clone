@@ -12,6 +12,14 @@ const DATE_FORMAT = 'DD'
 const DAY_OF_WEEK_FORMAT = 'ddd'
 
 const Day: FC<Props> = ({ day, rowIdx }) => {
+  function getCurrentDayClass() {
+    const DATE_FORMAT = 'DD-MM-YY'
+
+    return day.format(DATE_FORMAT) === dayjs().format(DATE_FORMAT)
+      ? 'bg-blue-600 text-white rounded-full w-7'
+      : ''
+  }
+
   return (
     <div className='border border-gray-200 flex flex-col'>
       <header className='flex flex-col items-center'>
@@ -21,7 +29,7 @@ const Day: FC<Props> = ({ day, rowIdx }) => {
           </p>
         )}
 
-        <p className='text-sm p-1 my-1 text-center'>
+        <p className={`text-sm p-1 my-1 text-center ${getCurrentDayClass()}`}>
           {day.format(DATE_FORMAT)}
         </p>
       </header>
