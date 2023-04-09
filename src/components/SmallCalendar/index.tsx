@@ -16,7 +16,8 @@ const SmallCalendar = () => {
     setCurrentMonth(getMonth(currentMonthIdx))
   }, [currentMonthIdx])
 
-  const { monthIdx, setSmallCalendarMonth } = useContext(GlobalContext)
+  const { monthIdx, setSmallCalendarMonth, setDaySelected, daySelected } =
+    useContext(GlobalContext)
 
   useEffect(() => {
     // TODO: FIX BUG
@@ -35,12 +36,17 @@ const SmallCalendar = () => {
   const getDayClass = (day: Day) => {
     const today = dayjs().format(FULL_DATE)
     const currentDay = day.format(FULL_DATE)
+    const selectedDay = daySelected && daySelected.format(FULL_DATE)
 
-    if (today !== currentDay) {
-      return ''
+    if (today === currentDay) {
+      return 'bg-blue-500 rounded-full text-white'
     }
 
-    return 'bg-blue-500 rounded-full text-white'
+    if (currentDay === selectedDay) {
+      return 'bg-blue-100 rounded-full text-blue-600 font-bold'
+    }
+
+    return ''
   }
 
   return (
@@ -79,7 +85,10 @@ const SmallCalendar = () => {
               <button
                 key={i}
                 className={`py-1 w-full ${getDayClass(day)}`}
-                onClick={() => setSmallCalendarMonth(currentMonthIdx)}
+                onClick={() => {
+                  setSmallCalendarMonth(currentMonthIdx)
+                  setDaySelected(day)
+                }}
               >
                 <span className='text-sm'>{day.format(ONE_DIGIT_DATE)}</span>
               </button>

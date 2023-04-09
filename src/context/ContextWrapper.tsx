@@ -11,6 +11,7 @@ const ContextWrapper: FC<Props> = ({ children }) => {
   const [smallCalendarMonth, setSmallCalendarMonth] = useState<null | number>(
     null
   )
+  const [daySelected, setDaySelected] = useState(null)
 
   useEffect(() => {
     if (smallCalendarMonth !== null) {
@@ -25,6 +26,8 @@ const ContextWrapper: FC<Props> = ({ children }) => {
         setMonthIdx,
         smallCalendarMonth,
         setSmallCalendarMonth,
+        daySelected,
+        setDaySelected,
       }}
     >
       {children}
