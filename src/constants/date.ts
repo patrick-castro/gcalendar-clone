@@ -5,6 +5,7 @@ const FORMAT = {
   TWO_LETTER_DAY: 'dd',
   DAY_OF_WEEK: 'ddd',
   FULL_DATE: 'DD-MM-YY',
+  DAY_AND_WEEK: 'dddd, MMMM DD',
 }
 
 export { FORMAT }
