@@ -12,6 +12,7 @@ interface ContextProps {
   showEventModal: boolean
   setShowEventModal: Function
   dispatchCalEvent: Function
+  savedEvents: any
 }
 
 const GlobalContext = createContext<ContextProps>({
@@ -24,6 +25,7 @@ const GlobalContext = createContext<ContextProps>({
   showEventModal: false,
   setShowEventModal: () => {},
   dispatchCalEvent: ({ type, payload }: any) => {},
+  savedEvents: [],
 })
 
 export default GlobalContext

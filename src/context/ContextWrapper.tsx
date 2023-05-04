@@ -66,6 +66,7 @@ const ContextWrapper: FC<Props> = ({ children }) => {
         showEventModal,
         setShowEventModal,
         dispatchCalEvent,
+        savedEvents,
       }}
     >
       {children}
